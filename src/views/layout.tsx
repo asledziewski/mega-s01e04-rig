@@ -16,6 +16,10 @@ const css = `
   th { color: var(--mute); font-weight: normal; }
   .warn { color: var(--warn); }
   .mute { color: var(--mute); }
+  .digest-meta { color: var(--mute); }
+  .digest-table-wrap { overflow-x: auto; }
+  .digest-table-wrap th, .digest-table-wrap td { white-space: nowrap; }
+  .digest-table-wrap td:nth-child(6) { white-space: normal; overflow-wrap: anywhere; }
 `;
 
 export function Layout(props: { title: string; lane: Lane; children: Child }) {
