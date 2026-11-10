@@ -10,7 +10,7 @@ const css = `
   body { margin: 0; font: 15px/1.5 ui-monospace, "SF Mono", Menlo, Consolas, monospace; color: var(--fg); background: var(--bg); }
   header { display: flex; gap: 1.5rem; padding: .75rem 1.25rem; border-bottom: 1px solid var(--line); }
   header .marker { margin-left: auto; color: var(--mute); }
-  main { padding: 1.25rem; max-width: 60rem; }
+  main { padding: 1.25rem; max-width: 90rem; }
   table { border-collapse: collapse; width: 100%; }
   th, td { text-align: left; padding: .35rem .75rem .35rem 0; border-bottom: 1px solid var(--line); }
   th { color: var(--mute); font-weight: normal; }
@@ -18,8 +18,9 @@ const css = `
   .mute { color: var(--mute); }
   .digest-meta { color: var(--mute); }
   .digest-table-wrap { overflow-x: auto; }
-  .digest-table-wrap th, .digest-table-wrap td { white-space: nowrap; }
-  .digest-table-wrap td:nth-child(6) { white-space: normal; overflow-wrap: anywhere; }
+  .digest-table-wrap { max-width: 100%; }
+  .digest-table-wrap th, .digest-table-wrap td { white-space: normal; }
+  .digest-table-wrap td:nth-child(6), .digest-table-wrap td:nth-child(7), .digest-table-wrap td:nth-child(8) { overflow-wrap: anywhere; }
 `;
 
 export function Layout(props: { title: string; lane: Lane; children: Child }) {
@@ -29,6 +30,7 @@ export function Layout(props: { title: string; lane: Lane; children: Child }) {
       <html lang="en">
         <head>
           <meta charset="utf-8" />
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
           <title>rig · {props.title}</title>
           <style>{raw(css)}</style>
         </head>
